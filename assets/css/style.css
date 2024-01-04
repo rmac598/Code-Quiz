@@ -21,7 +21,10 @@
 #currentTime {
   float: right;
 }
-
+ a {
+  display: flex;
+  justify-content: flex-end;
+}
 #goBack {
   background-color: blue;
   position: relative;

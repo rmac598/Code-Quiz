@@ -38,11 +38,11 @@ var timer = document.querySelector("#startTime");
 var questionsDiv = document.querySelector("#questionsDiv");
 var wrapper = document.querySelector("#wrapper");
 
-// Seconds left is 15 seconds per question:
+// Seconds 
 var secondsLeft = 90;
-// Holds interval time
+//  interval time
 var holdInterval = 0;
-// Holds penalty time
+//  penalty time
 var penalty = 15;
 // Creates new element
 var ulCreate = document.createElement("ul");
@@ -70,11 +70,11 @@ function render(questionIndex) {
     // Clears existing data 
     questionsDiv.innerHTML = "";
     ulCreate.innerHTML = "";
-    // For loops to loop through all info in array
+    // For loops to loop through all  array
     for (var i = 0; i < questions.length; i++) {
         // Appends question title only
-        var userQuestion = questions[questionIndex].title;
-        var userChoices = questions[questionIndex].choices;
+        var userQuestion = questions[questionIndex].q;
+        var userChoices = questions[questionIndex].a;
         questionsDiv.textContent = userQuestion;
     }
     // New for each for question choices
@@ -95,14 +95,14 @@ function compare(event) {
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "createDiv");
         // Correct condition 
-        if (element.textContent == questions[questionIndex].answer) {
+        if (element.textContent == questions[questionIndex].c) {
             score++;
-            createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
-            // Correct condition 
+            createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].c;
+           
         } else {
             // Will deduct -5 seconds off secondsLeft for wrong answers
             secondsLeft = secondsLeft - penalty;
-            createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
+            createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].c;
         }
 
     }
@@ -124,7 +124,6 @@ function allDone() {
     questionsDiv.innerHTML = "";
     currentTime.innerHTML = "";
 
-    // Heading:
     var createH1 = document.createElement("h1");
     createH1.setAttribute("id", "createH1");
     createH1.textContent = "All Done!"
